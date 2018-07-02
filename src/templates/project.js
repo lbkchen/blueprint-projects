@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Content, { HTMLContent } from '../components/Content'
 
-export const ProjectsPageTemplate = ({
+export const ProjectTemplate = ({
   title,
   content,
   contentComponent
@@ -18,6 +18,7 @@ export const ProjectsPageTemplate = ({
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
+              {body}
             </div>
           </div>
         </div>
@@ -26,31 +27,31 @@ export const ProjectsPageTemplate = ({
   )
 }
 
-ProjectsPageTemplate.propTypes = {
+ProjectTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
 
-const ProjectsPage = ({ data }) => {
+const Project = ({ data }) => {
   const { markdownRemark: project } = data
 
   return (
-    <ProjectsPageTemplate
+    <ProjectTemplate
       title={project.frontmatter.title}
       body={project.frontmatter.body}
     />
   )
 }
 
-ProjectsPage.propTypes = {
+Project.propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default ProjectsPage
+export default Project
 
-export const projectsPageQuery = graphql`
-  query ProjectsPage($id: String!) {
+export const aboutPageQuery = graphql`
+  query Project($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title

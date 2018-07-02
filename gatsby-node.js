@@ -27,7 +27,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       result.errors.forEach(e => console.error(e.toString()))
       return Promise.reject(result.errors)
     }
-
     const posts = result.data.allMarkdownRemark.edges
 
     posts.forEach(edge => {
@@ -75,6 +74,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
+    console.log(node)
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
