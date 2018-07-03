@@ -48,7 +48,7 @@ Project.propTypes = {
 
 export default Project
 
-export const aboutPageQuery = graphql`
+export const projectQuery = graphql`
   query Project($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {

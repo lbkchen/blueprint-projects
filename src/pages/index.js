@@ -3,6 +3,28 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
 export default class IndexPage extends React.Component {
+
+  renderProjectCard(project) {
+    return (
+      <Link to={project.fields.slug}>
+        <div className="card column is-narrow project-card hvr-bob" id={project.id}>
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img src={project.frontmatter.thumbnail} alt="Thumbnail image" />
+            </figure>
+          </div>
+
+          <div className="card-content">
+            <div className="media-content">
+              <p className="title is-4">{project.frontmatter.title}</p>
+              <p className="subtitle is-6">{project.frontmatter.description}</p>
+            </div>
+          </div>
+        </div>
+      </Link>
+    )
+  }
+
   render() {
     const { data } = this.props
     const { edges: projects } = data.allMarkdownRemark
@@ -13,16 +35,12 @@ export default class IndexPage extends React.Component {
           <div className="content">
             <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
           </div>
-          {projects
-            .map(({ node: project }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                key={project.id}
-              >
-                {project.frontmatter.title}
-              </div>
-            ))}
+          <div className="columns">
+            {projects
+              .map(({ node: project }) => (
+                this.renderProjectCard(project)
+              ))}
+          </div>
         </div>
       </section>
     )
@@ -51,8 +69,10 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            title
             templateKey
+            title
+            thumbnail
+            description
           }
         }
       }
