@@ -14,4 +14,14 @@ features:
       Do the right thing and get just the right amount of milk froth so that the
       latte art comes out perfectly.
 ---
+> Hello there
 
+Why do we do this?
+
+```
+def python():  print("Hello world!")
+```
+
+# Hey there
+
+* This is actually raw markdown
