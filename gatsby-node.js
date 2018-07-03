@@ -35,7 +35,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       createPage({
         path: page.node.fields.slug,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(page.node.frontmatter.templateKey)}.js`
         ),
         context: {
           id,

@@ -18,7 +18,6 @@ export const ProjectTemplate = ({
               <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h2>
-              {body}
             </div>
           </div>
         </div>
@@ -39,7 +38,6 @@ const Project = ({ data }) => {
   return (
     <ProjectTemplate
       title={project.frontmatter.title}
-      body={project.frontmatter.body}
     />
   )
 }

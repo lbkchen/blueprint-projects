@@ -14,7 +14,15 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Intro", name: "intro", widget: "object", fields: [
+          {label: "Blurb", name: "blurb", widget: "string"},
+          {label: "Gif", name: "gif", widget: "image"}
+        ]}
+      - {label: "Features", name: "features", widget: "list", fields: [
+          {label: "Image", name: "image", widget: "image"},
+          {label: "Text", name: "text", widget: "text"}
+        ]}
 
   - name: "blog"
     label: "Blog"
