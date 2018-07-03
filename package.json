@@ -4,6 +4,7 @@
   "version": "1.0",
   "author": "Ken Chen",
   "dependencies": {
+    "animate.css": "^3.6.1",
     "bulma": "^0.6.0",
     "gatsby": "^1.9.213",
     "gatsby-link": "^1.6.37",
