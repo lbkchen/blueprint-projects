@@ -16,7 +16,7 @@ export default class IndexPage extends React.Component {
 
           <div className="card-content">
             <div className="media-content">
-              <p className="title is-4">{project.frontmatter.title}</p>
+              <h1 className="title is-4">{project.frontmatter.title}</h1>
               <p className="subtitle is-6">{project.frontmatter.description}</p>
             </div>
           </div>
