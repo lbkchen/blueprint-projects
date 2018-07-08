@@ -41,12 +41,24 @@
   font-family: $poppins;
 }
 
-
 .project-body {
   @extend .is-four-fifths-mobile;
   @extend .is-three-quarters-tablet;
   @extend .is-two-thirds-desktop;
   @extend .is-half-widescreen;
   @extend .is-half-fullhd;
-  margin: 0px auto; 
+  margin: 0px auto;
+}
+
+.project-intro {
+  font-family: $vollkorn;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: $grey;
+}
+
+.project-image {
+  display: block;
+  max-width: 500px;
+  margin: 40px auto;
 }

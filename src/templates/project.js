@@ -15,42 +15,49 @@ export const ProjectTemplate = ({
 
   return (
     <div>
-      <div className="columns is-mobile">
+      <section className="section columns is-mobile">
         <div className="column project-body">
-          <div className="section">
-            <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-
-            <div>
-              {intro.blurb}
-              <img src={intro.gif} />
-            </div>
-
-            <div>
-              {features.map(feature => (
-                <div>
-                  <img src={feature.image} />
-                  {feature.text}
-                </div>
-              ))}
-            </div>
-
-            <div>
-              <PageContent content={content} />
-            </div>
-          </div>
+          <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
+            {title}
+          </h1>
+          <p>{description}</p>
         </div>
-      </div>
+      </section>
 
-      <section className="hero column">
-        <div className="hero-body">
-          <div className="container">
-            <img src={thumbnail} alt="project thumbnail image" />
-            <p>{description}</p>
+      <section>
+        <img className="project-image" src={intro.gif} />
+        <div className="hero is-light">
+          <div className="hero-body">
+            <div className="project-intro has-text-centered">
+              {intro.blurb}
+            </div>
           </div>
         </div>
       </section>
+
+
+      <section className="section columns is-mobile">
+        <div className="column project-body">
+          <div>
+            {intro.blurb}
+            <img src={intro.gif} />
+          </div>
+
+          <div>
+            {features.map(feature => (
+              <div>
+                <img src={feature.image} />
+                {feature.text}
+              </div>
+            ))}
+          </div>
+
+          <div>
+            <PageContent content={content} />
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }
