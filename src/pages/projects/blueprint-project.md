@@ -8,11 +8,15 @@ intro:
   gif: /img/giphy-1-.gif
 features:
   - image: /img/coffee-gear.png
-    text: 'Get the most out of your coffee by filtering it before steaming the milk. '
+    text: >-
+      FEATURE 1: Get the most out of your coffee by filtering it before steaming
+      the milk. 
   - image: /img/coffee.png
     text: >-
-      Do the right thing and get just the right amount of milk froth so that the
-      latte art comes out perfectly.
+      FEATURE 2: Do the right thing and get just the right amount of milk froth
+      so that the latte art comes out perfectly.
+  - image: /img/products-grid1.jpg
+    text: 'FEATURE 3: Coffee comes out great yo'
 ---
 > Hello there
 
@@ -25,3 +29,9 @@ def python():  print("Hello world!")
 # Hey there
 
 * This is actually raw markdown
+
+```python
+def hello():
+  for _ in range(5):
+    print("hello")
+```
