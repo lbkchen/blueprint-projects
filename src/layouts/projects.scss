@@ -25,7 +25,7 @@
 }
 
 .title-projects {
-  font-weight: 500;
+  font-weight: 400;
   font-family: $poppins;
 }
 
@@ -37,6 +37,16 @@
 }
 
 .title-blueprint {
-  font-weight: bold;
+  font-weight: 600;
   font-family: $poppins;
+}
+
+
+.project-body {
+  @extend .is-four-fifths-mobile;
+  @extend .is-three-quarters-tablet;
+  @extend .is-two-thirds-desktop;
+  @extend .is-half-widescreen;
+  @extend .is-half-fullhd;
+  margin: 0px auto; 
 }

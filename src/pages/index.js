@@ -41,7 +41,7 @@ export default class IndexPage extends React.Component {
               <span className="title-blueprint is-size-3">blueprint</span>
             </div>
           </div>
-          <div className="columns">
+          <div className="">
             {projects
               .map(({ node: project }) => (
                 this.renderProjectCard(project)

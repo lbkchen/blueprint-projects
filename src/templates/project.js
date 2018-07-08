@@ -14,41 +14,44 @@ export const ProjectTemplate = ({
   const PageContent = contentComponent || Content
 
   return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-8 is-offset-2">
-            <div className="section">
-              <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h1>
-              <div>
-                <img src={thumbnail} alt="project thumbnail image" />
-                <p>{description}</p>
-              </div>
+    <div>
+      <div className="columns is-mobile">
+        <div className="column project-body">
+          <div className="section">
+            <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
+              {title}
+            </h1>
 
-              <div>
-                {intro.blurb}
-                <img src={intro.gif} />
-              </div>
+            <div>
+              {intro.blurb}
+              <img src={intro.gif} />
+            </div>
 
-              <div>
-                {features.map(feature => (
-                  <div>
-                    <img src={feature.image} />
-                    {feature.text}
-                  </div>
-                ))}
-              </div>
+            <div>
+              {features.map(feature => (
+                <div>
+                  <img src={feature.image} />
+                  {feature.text}
+                </div>
+              ))}
+            </div>
 
-              <div>
-                <PageContent content={content} />
-              </div>
+            <div>
+              <PageContent content={content} />
             </div>
           </div>
         </div>
       </div>
-    </section>
+
+      <section className="hero column">
+        <div className="hero-body">
+          <div className="container">
+            <img src={thumbnail} alt="project thumbnail image" />
+            <p>{description}</p>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
 
