@@ -33,7 +33,9 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
           <div className="content">
-            <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
+            <div className="level">
+              <h1 className="level-item has-text-centered is-size-3">Projects @ Blueprint</h1>
+            </div>
           </div>
           <div className="columns">
             {projects

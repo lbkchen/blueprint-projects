@@ -22,19 +22,28 @@ export const ProjectTemplate = ({
               <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h1>
-              <img src={thumbnail} alt="project thumbnail image" />
-              <p>{description}</p>
+              <div>
+                <img src={thumbnail} alt="project thumbnail image" />
+                <p>{description}</p>
+              </div>
+
               <div>
                 {intro.blurb}
                 <img src={intro.gif} />
               </div>
-              {features.map(feature => (
-                <div>
-                  <img src={feature.image} />
-                  {feature.text}
-                </div>
-              ))}
-              <PageContent content={content} />
+
+              <div>
+                {features.map(feature => (
+                  <div>
+                    <img src={feature.image} />
+                    {feature.text}
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <PageContent content={content} />
+              </div>
             </div>
           </div>
         </div>
