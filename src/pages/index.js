@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
+import logo from '../img/logo.png'
+
 export default class IndexPage extends React.Component {
 
   renderProjectCard(project) {
@@ -33,8 +35,10 @@ export default class IndexPage extends React.Component {
       <section className="section">
         <div className="container">
           <div className="content">
-            <div className="level">
-              <h1 className="level-item has-text-centered is-size-3">Projects @ Blueprint</h1>
+            <div className="title-container">
+              <span className="title-projects is-size-3">projects</span>
+              <img className="title-image" src={logo} alt="logo" />
+              <span className="title-blueprint is-size-3">blueprint</span>
             </div>
           </div>
           <div className="columns">

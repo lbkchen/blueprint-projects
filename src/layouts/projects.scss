@@ -16,3 +16,27 @@
   white-space: normal;
   cursor: pointer;
 }
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-projects {
+  font-weight: 500;
+  font-family: $poppins;
+}
+
+.title-image {
+  display: inline;
+  height: 32px;
+  width: 32px;
+  margin: 0px 15px;
+}
+
+.title-blueprint {
+  font-weight: bold;
+  font-family: $poppins;
+}
