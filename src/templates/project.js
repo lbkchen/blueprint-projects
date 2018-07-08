@@ -4,8 +4,12 @@ import Content, { HTMLContent } from '../components/Content'
 
 export const ProjectTemplate = ({
   title,
+  thumbnail,
+  description,
+  intro,
+  features,
   content,
-  contentComponent
+  contentComponent,
 }) => {
   const PageContent = contentComponent || Content
 
@@ -18,6 +22,19 @@ export const ProjectTemplate = ({
               <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
               </h1>
+              <img src={thumbnail} alt="project thumbnail image" />
+              <p>{description}</p>
+              <div>
+                {intro.blurb}
+                <img src={intro.gif} />
+              </div>
+              {features.map(feature => (
+                <div>
+                  <img src={feature.image} />
+                  {feature.text}
+                </div>
+              ))}
+              <PageContent content={content} />
             </div>
           </div>
         </div>
@@ -28,6 +45,16 @@ export const ProjectTemplate = ({
 
 ProjectTemplate.propTypes = {
   title: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  intro: PropTypes.shape({
+    blurb: PropTypes.string.isRequired,
+    gif: PropTypes.string,
+  }),
+  features: PropTypes.arrayOf({
+    image: PropTypes.string,
+    text: PropTypes.string.isRequired,
+  }),
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
@@ -35,10 +62,16 @@ ProjectTemplate.propTypes = {
 const Project = ({ data }) => {
   const { markdownRemark: project } = data
   console.log(data)
-  
+
   return (
     <ProjectTemplate
       title={project.frontmatter.title}
+      thumbnail={project.frontmatter.thumbnail}
+      description={project.frontmatter.description}
+      intro={project.frontmatter.intro}
+      features={project.frontmatter.features}
+      content={project.html}
+      contentComponent={HTMLContent}
     />
   )
 }
