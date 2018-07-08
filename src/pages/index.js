@@ -28,7 +28,7 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: projects } = data.allMarkdownRemark
-    console.log(projects)
+
     return (
       <section className="section">
         <div className="container">

@@ -13,11 +13,11 @@ export const ProjectTemplate = ({
     <section className="section section--gradient">
       <div className="container">
         <div className="columns">
-          <div className="column is-10 is-offset-1">
+          <div className="column is-8 is-offset-2">
             <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+              <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
                 {title}
-              </h2>
+              </h1>
             </div>
           </div>
         </div>
@@ -34,7 +34,8 @@ ProjectTemplate.propTypes = {
 
 const Project = ({ data }) => {
   const { markdownRemark: project } = data
-
+  console.log(data)
+  
   return (
     <ProjectTemplate
       title={project.frontmatter.title}
@@ -51,9 +52,19 @@ export default Project
 export const projectQuery = graphql`
   query Project($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         title
         thumbnail
+        description
+        intro {
+          blurb
+          gif
+        }
+        features {
+          image
+          text
+        }
       }
     }
   }
