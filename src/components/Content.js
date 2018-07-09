@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export const HTMLContent = ({ content, className }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
+  <div className={className || "content"} dangerouslySetInnerHTML={{ __html: content }} />
 )
 
 const Content = ({ content, className }) => (
-  <div className={className}>{content}</div>
+  <div className={className || "content"}>{content}</div>
 )
 
 Content.propTypes = {

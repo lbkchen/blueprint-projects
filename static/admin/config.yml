@@ -20,6 +20,7 @@ collections:
           {label: "Gif", name: "gif", widget: "image"}
         ]}
       - {label: "Features", name: "features", widget: "list", fields: [
+          {label: "Name": name: "name", widget: "string"}, 
           {label: "Image", name: "image", widget: "image"},
           {label: "Text", name: "text", widget: "text"}
         ]}

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Content, { HTMLContent } from '../components/Content'
 
+import Navbar from '../components/Navbar'
 import { getScrollPercent } from '../helpers/scroll'
 
 export const ProjectTemplate = ({
@@ -17,10 +18,11 @@ export const ProjectTemplate = ({
 
   return (
     <div>
+      <Navbar />
       <div className="progress" />
       <section className="section columns is-mobile">
         <div className="column project-body">
-          <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
+          <h1 className="styled title is-size-3 has-text-weight-bold is-bold-light">
             {title}
           </h1>
           <p>{description}</p>
@@ -43,12 +45,20 @@ export const ProjectTemplate = ({
         <div className="column project-body">
 
           <div>
-            {features.map(feature => (
-              <div>
-                <img src={feature.image} />
+            {features.map((feature, i) => { return (
+              <div key={`feature-${i}`}>
+                {feature.name && (
+                  <div>
+                    <span className="project-feature-number">
+                      {i}
+                    </span>
+                    {feature.name}
+                  </div>
+                )}
+                <img className="project-image" src={feature.image} />
                 {feature.text}
               </div>
-            ))}
+            )})}
           </div>
 
           <div>
@@ -69,10 +79,11 @@ ProjectTemplate.propTypes = {
     blurb: PropTypes.string.isRequired,
     gif: PropTypes.string,
   }),
-  features: PropTypes.arrayOf({
+  features: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
     image: PropTypes.string,
     text: PropTypes.string.isRequired,
-  }),
+  })),
   content: PropTypes.string,
   contentComponent: PropTypes.func,
 }
@@ -80,11 +91,11 @@ ProjectTemplate.propTypes = {
 class Project extends React.Component {
 
   componentDidMount() {
-    let progress = document.querySelector('.progress')
-    document.addEventListener('scroll', () => {
-      let scroll = getScrollPercent()
-      progress.style.setProperty('--scroll', scroll + '%')
-    })
+    // let progress = document.querySelector('.progress')
+    // document.addEventListener('scroll', () => {
+    //   let scroll = getScrollPercent()
+    //   progress.style.setProperty('--scroll', scroll + '%')
+    // })
   }
 
   render() {
