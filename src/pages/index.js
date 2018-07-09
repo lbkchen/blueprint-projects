@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
+import Navbar from '../components/Navbar'
 import logo from '../img/logo.png'
 
 export default class IndexPage extends React.Component {
@@ -32,16 +33,19 @@ export default class IndexPage extends React.Component {
     const { edges: projects } = data.allMarkdownRemark
 
     return (
-      <section className="section">
-        <div className="container">
-          <div className="">
-            {projects
-              .map(({ node: project }) => (
-                this.renderProjectCard(project)
-              ))}
+      <div>
+        <Navbar />
+        <section className="section">
+          <div className="container">
+            <div className="">
+              {projects
+                .map(({ node: project }) => (
+                  this.renderProjectCard(project)
+                ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     )
   }
 }

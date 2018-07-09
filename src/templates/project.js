@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Content, { HTMLContent } from '../components/Content'
 
+import { getScrollPercent } from '../helpers/scroll'
+
 export const ProjectTemplate = ({
   title,
   thumbnail,
@@ -15,6 +17,7 @@ export const ProjectTemplate = ({
 
   return (
     <div>
+      <div className="progress" />
       <section className="section columns is-mobile">
         <div className="column project-body">
           <h1 className="title is-size-3 has-text-weight-bold is-bold-light">
@@ -38,10 +41,6 @@ export const ProjectTemplate = ({
 
       <section className="section columns is-mobile">
         <div className="column project-body">
-          <div>
-            {intro.blurb}
-            <img src={intro.gif} />
-          </div>
 
           <div>
             {features.map(feature => (
@@ -78,21 +77,31 @@ ProjectTemplate.propTypes = {
   contentComponent: PropTypes.func,
 }
 
-const Project = ({ data }) => {
-  const { markdownRemark: project } = data
-  console.log(data)
+class Project extends React.Component {
 
-  return (
-    <ProjectTemplate
-      title={project.frontmatter.title}
-      thumbnail={project.frontmatter.thumbnail}
-      description={project.frontmatter.description}
-      intro={project.frontmatter.intro}
-      features={project.frontmatter.features}
-      content={project.html}
-      contentComponent={HTMLContent}
-    />
-  )
+  componentDidMount() {
+    let progress = document.querySelector('.progress')
+    document.addEventListener('scroll', () => {
+      let scroll = getScrollPercent()
+      progress.style.setProperty('--scroll', scroll + '%')
+    })
+  }
+
+  render() {
+    const { markdownRemark: project } = this.props.data
+
+    return (
+      <ProjectTemplate
+        title={project.frontmatter.title}
+        thumbnail={project.frontmatter.thumbnail}
+        description={project.frontmatter.description}
+        intro={project.frontmatter.intro}
+        features={project.frontmatter.features}
+        content={project.html}
+        contentComponent={HTMLContent}
+      />
+    )
+  }
 }
 
 Project.propTypes = {

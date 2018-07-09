@@ -1,10 +1,31 @@
 @import "~bulma/sass/utilities/initial-variables";
 @import "~bulma";
+@import "./variables";
 @import "./fonts";
 @import "./animations";
 @import "./nav";
 @import "./projects";
 
 body {
+  color: $grey-dark;
+  font-family: $serif;
+  font-size: 1.2rem;
+}
+
+p {
+  @extend body;
+}
+
+h1 {
   color: $grey-darker;
+  font-family: $sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  color: $grey;
+  font-family: $sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
