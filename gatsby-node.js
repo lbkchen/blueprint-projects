@@ -16,7 +16,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
               slug
             }
             frontmatter {
-              tags
               templateKey
             }
           }
@@ -50,6 +49,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
+    console.log("CREATING NODE")
     console.log(node)
     const value = createFilePath({ node, getNode })
     createNodeField({

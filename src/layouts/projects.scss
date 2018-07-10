@@ -61,6 +61,7 @@
 }
 
 .project-intro {
+  margin: 0px auto;
   font-family: $vollkorn;
   font-size: 1.5rem;
   font-style: italic;
@@ -70,6 +71,7 @@
 .project-image {
   display: block;
   max-width: 500px;
+  max-height: 580px;
   margin: 40px auto;
 }
 

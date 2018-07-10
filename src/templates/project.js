@@ -32,8 +32,8 @@ export const ProjectTemplate = ({
       <section>
         <img className="project-image" src={intro.gif} />
         <div className="hero is-light">
-          <div className="hero-body">
-            <div className="project-intro has-text-centered">
+          <div className="hero-body columns">
+            <div className="project-intro has-text-centered column body-slim">
               {intro.blurb}
             </div>
           </div>
