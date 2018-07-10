@@ -11,7 +11,7 @@ features:
     name: Get the most out of your coffee
     text: >-
       FEATURE 1: Get the most out of your coffee by filtering it before steaming
-      the milk. 
+      the milk.
   - image: /img/coffee.png
     name: Get the right amount of milk
     text: >-

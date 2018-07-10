@@ -9,8 +9,8 @@ export default class IndexPage extends React.Component {
 
   renderProjectCard(project) {
     return (
-      <Link to={project.fields.slug}>
-        <div className="card column is-narrow project-card hvr-bob" id={project.id}>
+      <Link to={project.fields.slug} key={project.id}>
+        <div className="card column is-narrow project-card hvr-bob">
           <div className="card-image">
             <figure className="image is-4by3">
               <img src={project.frontmatter.thumbnail} alt="Thumbnail image" />
@@ -30,14 +30,15 @@ export default class IndexPage extends React.Component {
 
   render() {
     const { data } = this.props
+    console.log(this.props)
     const { edges: projects } = data.allMarkdownRemark
 
     return (
       <div>
         <Navbar />
         <section className="section">
-          <div className="container">
-            <div className="">
+          <div className="columns is-mobile is-centered">
+            <div className="column body-medium">
               {projects
                 .map(({ node: project }) => (
                   this.renderProjectCard(project)
@@ -61,8 +62,8 @@ IndexPage.propTypes = {
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "project" } }}
+      sort: { order: DESC, fields: [frontmatter___date] },
     ) {
       edges {
         node {

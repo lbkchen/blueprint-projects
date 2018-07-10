@@ -8,6 +8,7 @@ intro:
   gif: /img/giphy-1-.gif
 features:
   - image: /img/chemex.jpg
+    name: Hey
     text: Yep
 ---
 I am fancying this actually

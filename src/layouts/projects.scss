@@ -5,8 +5,8 @@
 .project-card {
   display: inline-block;
   position: relative;
-  width: 355px;
-  height: 480px;
+  width: 300px;
+  height: 420px;
   margin: 20px;
   padding: 0px;
   background-color: white;
@@ -15,6 +15,10 @@
   box-shadow: 0 20px 20px rgba(0,0,0,.08);
   white-space: normal;
   cursor: pointer;
+
+  &:hover {
+    // box-shadow: inset 20px 0 80px #f0f;
+  }
 }
 
 .title-container {
@@ -53,12 +57,7 @@
 }
 
 .project-body {
-  @extend .is-four-fifths-mobile;
-  @extend .is-three-quarters-tablet;
-  @extend .is-two-thirds-desktop;
-  @extend .is-half-widescreen;
-  @extend .is-half-fullhd;
-  margin: 0px auto;
+  @extend .body-slim;
 }
 
 .project-intro {
@@ -74,13 +73,33 @@
   margin: 40px auto;
 }
 
+.project-feature {
+  margin: 48px 0px;
+}
+
+.project-feature-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .project-feature-number {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $bp-blue;
-  color: $white; 
+  background-color: $bp-blue-20;
+  color: $bp-blue;
+  font-family: $sans-serif;
+  font-weight: 600;
+}
+
+.project-feature-name {
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: 600;
+  color: $grey-dark;
 }

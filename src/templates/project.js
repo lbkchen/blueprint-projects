@@ -43,16 +43,14 @@ export const ProjectTemplate = ({
 
       <section className="section columns is-mobile">
         <div className="column project-body">
-
+          <h1>Features</h1>
           <div>
             {features.map((feature, i) => { return (
-              <div key={`feature-${i}`}>
+              <div key={`feature-${i}`} className="project-feature">
                 {feature.name && (
-                  <div>
-                    <span className="project-feature-number">
-                      {i}
-                    </span>
-                    {feature.name}
+                  <div className="project-feature-header">
+                    <span className="project-feature-number">{i}</span>
+                    <h2 className="project-feature-name">{feature.name}</h2>
                   </div>
                 )}
                 <img className="project-image" src={feature.image} />
@@ -134,6 +132,7 @@ export const projectQuery = graphql`
           gif
         }
         features {
+          name
           image
           text
         }
