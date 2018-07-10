@@ -10,7 +10,7 @@ export default class IndexPage extends React.Component {
   renderProjectCard(project) {
     return (
       <Link to={project.fields.slug} key={project.id}>
-        <div className="card column is-narrow project-card hvr-bob">
+        <div className="card column project-card is-narrow is-clipped hvr-bob">
           <div className="card-image">
             <figure className="image is-4by3">
               <img src={project.frontmatter.thumbnail} alt="Thumbnail image" />
@@ -18,10 +18,8 @@ export default class IndexPage extends React.Component {
           </div>
 
           <div className="card-content">
-            <div className="media-content">
-              <h1 className="title is-4">{project.frontmatter.title}</h1>
+              <h1 className="title is-4 is-spaced">{project.frontmatter.title}</h1>
               <p className="subtitle is-6">{project.frontmatter.description}</p>
-            </div>
           </div>
         </div>
       </Link>
@@ -30,7 +28,6 @@ export default class IndexPage extends React.Component {
 
   render() {
     const { data } = this.props
-    console.log(this.props)
     const { edges: projects } = data.allMarkdownRemark
 
     return (
